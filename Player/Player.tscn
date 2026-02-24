@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://lip7djc6lsa2"]
+
+[ext_resource type="Texture2D" uid="uid://d0qi6gdgdkjn6" path="res://Player/ship.png" id="1"]
+[ext_resource type="AudioStream" uid="uid://trys0is7p8i6" path="res://Laser/laser1.ogg" id="3_ddoul"]
+[ext_resource type="Script" uid="uid://cj3m7iv4wrk5j" path="res://Player/Player.gd" id="4"]
+[ext_resource type="AudioStream" uid="uid://d3gvlnsw2wwmp" path="res://Laser/laser2.ogg" id="4_8g4oa"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6ysni"]
+streams_count = 2
+stream_0/stream = ExtResource("3_ddoul")
+stream_1/stream = ExtResource("4_8g4oa")
+
+[node name="Player" type="Node2D" unique_id=2020371452]
+script = ExtResource("4")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=281269995]
+rotation = 1.5708
+texture = ExtResource("1")
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=1641513758]
+stream = SubResource("AudioStreamRandomizer_6ysni")
+pitch_scale = 2.0

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dec5xbafkfnnw"]
+
+[ext_resource type="Texture2D" uid="uid://dg2hdrynt84jw" path="res://Meteor/big4.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://df8awk832xfhg" path="res://Meteor/big1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dajkredpmvclu" path="res://Meteor/big2.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dleecdgeudxmq" path="res://Meteor/big3.png" id="4"]
+[ext_resource type="Script" uid="uid://bpd7ywneuscl4" path="res://Meteor/Meteor.gd" id="5"]
+
+[sub_resource type="Shader" id="2"]
+code = "shader_type canvas_item;
+
+uniform float brightness: hint_range(0, 1);
+
+void fragment() {
+
+}"
+
+[sub_resource type="ShaderMaterial" id="3"]
+shader = SubResource("2")
+shader_parameter/brightness = 0.444
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v04a0"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 101, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h70af"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 120, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkj3b"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 89, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyfxc"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 98, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_42iem"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v04a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h70af")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkj3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyfxc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="4"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.5, 1.5, 1.5, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hcwx"]
+_data = {
+&"hit": SubResource("4")
+}
+
+[node name="Meteor" type="Node2D" unique_id=1279157368]
+script = ExtResource("5")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2065285315]
+material = SubResource("3")
+sprite_frames = SubResource("SpriteFrames_42iem")
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=120949643]
+resources = [PackedStringArray("0", "1", "2", "3"), [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("1")]]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1325112020]
+libraries/ = SubResource("AnimationLibrary_8hcwx")

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ct0wbt5xbsuph"]
+
+[ext_resource type="Script" uid="uid://buel1l8i47aof" path="res://Lose/Lose.gd" id="3"]
+
+[node name="Lose" type="Control" unique_id=185849373]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3")
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=1777478966]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -47.0
+offset_right = 141.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Container" unique_id=462879112]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "menu_loose"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Container" unique_id=1615828973]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "menu_go_back"
+
+[connection signal="pressed" from="Container/Button" to="." method="_play_pressed"]
