@@ -43,6 +43,9 @@ func _process(_delta: float) -> void:
 	for laser in lasers.get_children():
 		if xcollision(meteor, laser):
 			meteor.hit(laser)
+	for i in range(10):
+		if Input.is_key_pressed(KEY_0 + i):
+			_input_entered(i)
 var active_operations: Array[String]
 func _ready():
 	var ops: Dictionary[String, bool] = Preferences.saved.operations
