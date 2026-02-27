@@ -43,8 +43,11 @@ func _process(_delta: float) -> void:
 	for laser in lasers.get_children():
 		if xcollision(meteor, laser):
 			meteor.hit(laser)
-
+var active_operations: Array[String]
 func _ready():
+	var ops: Dictionary[String, bool] = Preferences.saved.operations
+	active_operations = ops.keys().filter(func(key): return ops[key])
+	
 	$UI/Skip.text = tr("game_button_skips") % 3
 	Global.time = 0
 	Global.op = 0
@@ -60,30 +63,61 @@ func _input_entered(num):
 		new_op()
 
 func new_op():
-	var op = generate_operation(randi_range(0, 3))
+	if active_operations.is_empty():
+		answer = int(NAN)
+		$UI/OperationPanel/Operation.text = "0 / 0 (:"
+		return
+	var op = generate_operation(active_operations.pick_random())
 	$UI/OperationPanel/Operation.text = op[3]
 	answer = op[2]
 
-func generate_operation(type: int):
-	var num1 = randi_range(0, 9)
-	var num2 = randi_range(0, 9)
-	var answear := 0
-	var optext := ''
+var mul_pairs = [
+	[0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8], [0, 9],
+	[1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8], [1, 9],
+	[2, 2], [2, 3], [2, 4], [3, 3],
+	[2, 2], [2, 3], [2, 4], [3, 3],
+	[2, 2], [2, 3], [2, 4], [3, 3],
+	[2, 2], [2, 3], [2, 4], [3, 3],
+]
+func generate_operation(type: String):
 	match type:
-		0: # +
-			optext = str(num1) + '+' + str(num2)
-		1: # -
-			optext = str(max(num1, num2)) + '-' + str(min(num1, num2))
-		2: # *
-			optext = str(num1) + '*' + str(num2)
-		3: # /
-			var op = generate_operation(2)
-			optext = str(op[2]) + '/' + str(op[1])
-	answear = eval(optext)
-	if answear < 10:
-		return [num1, num2, answear, optext]
-	else:
-		return generate_operation(type)
+		"sum":
+			var num1 = randi_range(0, 9)
+			var num2 = randi_range(0, 9 - num1)
+			var nums = [num1, num2]
+			nums.shuffle()
+			return [
+				num1, num2,
+				num1 + num2,
+				"%d + %d" % nums
+			]
+		"sub":
+			var num1 = randi_range(0, 9)
+			var num2 = randi_range(0, 9)
+			return [
+				num1, num2,
+				abs(num1 - num2),
+				"%d - %d" % [max(num1, num2), min(num1, num2)]
+			]
+		"mul":
+			var nums = mul_pairs.pick_random()
+			nums.shuffle()
+			var num1 = nums[0]
+			var num2 = nums[1]
+			return [
+				num1, num2,
+				num1 * num2,
+				"%d * %d" % [num1, num2]
+			]
+		"div":
+			var num2: int = randi_range(1, 9)
+			var num1: int = (randi_range(0, 9) * num2)
+			return [
+				num1, num2,
+				round(float(num1) / float(num2)),
+				"%d / %d" % [num1, num2]
+			]
+
 
 
 func Skip_pressed():

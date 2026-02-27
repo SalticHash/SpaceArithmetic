@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://khas2uuoo26w"]
+[gd_scene format=3 uid="uid://khas2uuoo26w"]
 
-[ext_resource type="Script" path="res://Win/Win.gd" id="3"]
+[ext_resource type="Script" uid="uid://et3sslcrgwsg" path="res://Win/Win.gd" id="3"]
 
-[node name="Win" type="Control"]
+[node name="Win" type="Control" unique_id=1291768530]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3")
 
-[node name="Container" type="VBoxContainer" parent="."]
+[node name="Container" type="VBoxContainer" parent="." unique_id=543311445]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,35 +26,24 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Container"]
+[node name="Label" type="Label" parent="Container" unique_id=1159701719]
 layout_mode = 2
-offset_right = 445.0
-offset_bottom = 37.0
 theme_override_font_sizes/font_size = 24
-text = "Ganaste!"
+text = "menu_win_message"
 
-[node name="Time" type="Label" parent="Container"]
+[node name="Time" type="Label" parent="Container" unique_id=359243673]
 layout_mode = 2
-offset_top = 41.0
-offset_right = 445.0
-offset_bottom = 78.0
 theme_override_font_sizes/font_size = 24
-text = "Tiempo:"
+text = "menu_win_time"
 
-[node name="Op" type="Label" parent="Container"]
+[node name="Op" type="Label" parent="Container" unique_id=2090019711]
 layout_mode = 2
-offset_top = 82.0
-offset_right = 445.0
-offset_bottom = 119.0
 theme_override_font_sizes/font_size = 24
-text = "Operaciones:"
+text = "menu_win_operations"
 
-[node name="Button" type="Button" parent="Container"]
+[node name="Button" type="Button" parent="Container" unique_id=193859018]
 layout_mode = 2
-offset_top = 123.0
-offset_right = 445.0
-offset_bottom = 165.0
 theme_override_font_sizes/font_size = 24
-text = "Volver al menu"
+text = "menu_go_back"
 
 [connection signal="pressed" from="Container/Button" to="." method="_play_pressed"]

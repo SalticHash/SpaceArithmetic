@@ -13,3 +13,6 @@ operation_sum,Addition (+),Suma (+)
 operation_sub,Substraction (-),Resta (-)
 operation_mul,Multiplication (*),Multiplicación (*)
 operation_div,Division (/),División (/)
+menu_win_message,You won!,¡Ganaste!
+menu_win_time,Time: %ds,Tiempo: %ds
+menu_win_operations,Operations: %d,Operaciones: %d

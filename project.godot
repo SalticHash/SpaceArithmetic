@@ -14,9 +14,15 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Aritmética Espacial"
+config/name="Space Arithmetic"
+config/name_localized={
+"en": "Space Arithmetic",
+"es": "Aritmética Espacial"
+}
 config/tags=PackedStringArray("finished", "project")
 run/main_scene="res://Menu/Menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="SpaceArithmetic"
 config/features=PackedStringArray("4.6")
 boot_splash/bg_color=Color(0.0117647, 0.0392157, 0.0823529, 1)
 boot_splash/stretch_mode=0
@@ -67,6 +73,7 @@ texture={
 [internationalization]
 
 locale/translations=PackedStringArray("res://Translations/translate.en.translation", "res://Translations/translate.es.translation")
+locale/locale_filter_mode=0
 
 [physics]
 

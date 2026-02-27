@@ -18,10 +18,20 @@ func _ready() -> void:
 		var op: String = operation.name
 		var active: bool = Preferences.saved.operations[op]
 		operation.set_pressed_no_signal(active)
-		operation.toggled.connect(operation_toggled.bind(op))
+		operation.toggled.connect(operation_toggled.bind(operation))
 
-func operation_toggled(toggled: bool, op: String) -> void:
-	Preferences.saved.operations[op] = toggled
+func operation_toggled(toggled: bool, button: CheckBox) -> void:
+	var selected = Preferences.saved.operations.values().count(true)
+	if toggled == false:
+		if selected == 0:
+			print("How did you unpress all of them?")
+			var sum = $Alignment/Operations/sum
+			sum.set_pressed_no_signal(true)
+			operation_toggled(true, sum)
+		if selected == 1:
+			button.set_pressed_no_signal(true)
+			return
+	Preferences.saved.operations[button.name] = toggled
 	Preferences.save_pr()
 
 func _on_locale_selected(index: int) -> void:
