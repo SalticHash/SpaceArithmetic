@@ -4,3 +4,12 @@ menu_title,Space Arithmetic,Aritmética Espacial
 game_button_skips,Skips: %d,Saltos: %d
 menu_loose,You lost!,¡Perdiste!
 menu_go_back,Go back to menu,Volver al menu
+menu_preferences,Preferences,Preferencias
+menu_option_locale,Language,Idioma
+menu_option_operations,Operations,Operaciones
+en,English,English
+es,Español,Español
+operation_sum,Addition (+),Suma (+)
+operation_sub,Substraction (-),Resta (-)
+operation_mul,Multiplication (*),Multiplicación (*)
+operation_div,Division (/),División (/)

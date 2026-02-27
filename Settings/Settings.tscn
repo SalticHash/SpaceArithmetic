@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dtrq385smupxx"]
+
+[ext_resource type="Script" uid="uid://c3idrxiwob4oh" path="res://Settings/Settings.gd" id="1_w44vd"]
+
+[sub_resource type="Theme" id="Theme_w44vd"]
+default_font_size = 32
+
+[node name="Settings" type="Control" unique_id=287956289]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_w44vd")
+script = ExtResource("1_w44vd")
+
+[node name="Alignment" type="VBoxContainer" parent="." unique_id=392371158]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 117.0
+offset_right = -117.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PreferencesTitle" type="Label" parent="Alignment" unique_id=755519127]
+layout_mode = 2
+text = "menu_preferences"
+vertical_alignment = 1
+
+[node name="LocaleTitle" type="Label" parent="Alignment" unique_id=2078309406]
+layout_mode = 2
+text = "menu_option_locale"
+vertical_alignment = 1
+
+[node name="Locale" type="OptionButton" parent="Alignment" unique_id=1239797154]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+item_count = 2
+popup/item_0/text = "en"
+popup/item_0/id = 0
+popup/item_1/text = "es"
+popup/item_1/id = 1
+
+[node name="OperationsTitle" type="Label" parent="Alignment" unique_id=1422644707]
+layout_mode = 2
+text = "menu_option_operations"
+vertical_alignment = 1
+
+[node name="Operations" type="VBoxContainer" parent="Alignment" unique_id=835400068]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="sum" type="CheckBox" parent="Alignment/Operations" unique_id=1118243293]
+layout_mode = 2
+text = "operation_sum"
+
+[node name="sub" type="CheckBox" parent="Alignment/Operations" unique_id=648622864]
+layout_mode = 2
+text = "operation_sub"
+
+[node name="mul" type="CheckBox" parent="Alignment/Operations" unique_id=1383359379]
+layout_mode = 2
+text = "operation_mul"
+
+[node name="div" type="CheckBox" parent="Alignment/Operations" unique_id=2101120457]
+layout_mode = 2
+text = "operation_div"
+
+[node name="Exit" type="Button" parent="Alignment" unique_id=1766977017]
+layout_mode = 2
+text = "menu_go_back"
+
+[connection signal="item_selected" from="Alignment/Locale" to="." method="_on_locale_selected"]
+[connection signal="pressed" from="Alignment/Exit" to="." method="_on_exit_pressed"]

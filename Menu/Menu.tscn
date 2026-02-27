@@ -32,22 +32,15 @@ text = "menu_title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Container" unique_id=552051909]
+[node name="Play" type="Button" parent="Container" unique_id=552051909]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "menu_button_play"
 
-[node name="LanguageSelect" type="VBoxContainer" parent="." unique_id=110744314]
-layout_mode = 0
-offset_right = 136.0
-offset_bottom = 66.0
-
-[node name="en" type="Button" parent="LanguageSelect" unique_id=851260520]
+[node name="Settings" type="Button" parent="Container" unique_id=1041466579]
 layout_mode = 2
-text = "English"
+theme_override_font_sizes/font_size = 24
+text = "menu_preferences"
 
-[node name="es" type="Button" parent="LanguageSelect" unique_id=397135740]
-layout_mode = 2
-text = "Español"
-
-[connection signal="pressed" from="Container/Button" to="." method="_play_pressed"]
+[connection signal="pressed" from="Container/Play" to="." method="_play_pressed"]
+[connection signal="pressed" from="Container/Settings" to="." method="_on_settings_pressed"]
