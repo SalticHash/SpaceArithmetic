@@ -15,8 +15,8 @@ func _ready() -> void:
 				best_score = score
 				best_locale = loaded_locale
 		Preferences.saved.locale = best_locale
-		TranslationServer.set_locale(best_locale)
 		save_pr()
+	TranslationServer.set_locale(saved.locale)
 
 func create_pr() -> void:
 	print("Creating preferences...")
