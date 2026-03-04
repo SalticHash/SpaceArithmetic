@@ -1,10 +1,86 @@
 [gd_scene format=3 uid="uid://dec5xbafkfnnw"]
 
-[ext_resource type="Texture2D" uid="uid://dg2hdrynt84jw" path="res://Meteor/big4.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://df8awk832xfhg" path="res://Meteor/big1.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://dajkredpmvclu" path="res://Meteor/big2.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://dleecdgeudxmq" path="res://Meteor/big3.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://mj5ct4g7gngo" path="res://Meteor/sprites/grey/meteorGrey_small.png" id="2_gtu62"]
+[ext_resource type="Texture2D" uid="uid://dhiamb41esqk4" path="res://Meteor/sprites/grey/meteorGrey_med.png" id="3_ng7bc"]
+[ext_resource type="Texture2D" uid="uid://brthc2cxbowjr" path="res://Meteor/sprites/brown/meteorBrown_big1.png" id="3_y1vjp"]
+[ext_resource type="Texture2D" uid="uid://dbh1gll3lagmg" path="res://Meteor/sprites/brown/meteorBrown_big2.png" id="4_sv5fq"]
 [ext_resource type="Script" uid="uid://bpd7ywneuscl4" path="res://Meteor/Meteor.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://dcbc6gjrdl4x5" path="res://Meteor/sprites/brown/meteorBrown_big3.png" id="5_fmia1"]
+[ext_resource type="AudioStream" uid="uid://dofv1jd3crnum" path="res://Meteor/sounds/rock1.mp3" id="6_aqpj4"]
+[ext_resource type="Texture2D" uid="uid://cubamf7ohufva" path="res://Meteor/sprites/brown/meteorBrown_big4.png" id="6_v4lv2"]
+[ext_resource type="AudioStream" uid="uid://c7itj302p103t" path="res://Meteor/sounds/rock2.mp3" id="7_410de"]
+[ext_resource type="Texture2D" uid="uid://cug3qtgnhxnv" path="res://Meteor/sprites/grey/meteorGrey_big1.png" id="7_ud3wa"]
+[ext_resource type="Texture2D" uid="uid://b68ojnkq7hkq" path="res://Meteor/sprites/grey/meteorGrey_big2.png" id="8_rpylb"]
+[ext_resource type="AudioStream" uid="uid://buaybiumt8cem" path="res://Meteor/sounds/rock3.mp3" id="8_v1t8t"]
+[ext_resource type="AudioStream" uid="uid://bx14xbu4fsklc" path="res://Meteor/sounds/destroy1.mp3" id="9_6emsu"]
+[ext_resource type="Texture2D" uid="uid://botrihqtm25rs" path="res://Meteor/sprites/grey/meteorGrey_big3.png" id="9_b8ba1"]
+[ext_resource type="AudioStream" uid="uid://c463ybyxg4cyk" path="res://Meteor/sounds/destroy2.mp3" id="10_i6mmx"]
+[ext_resource type="Texture2D" uid="uid://buiktimm85v64" path="res://Meteor/sprites/grey/meteorGrey_big4.png" id="10_nkmu4"]
+[ext_resource type="Texture2D" uid="uid://c7bhe1o0vnjfh" path="res://Meteor/sprites/brown/meteorBrown_med.png" id="17_2j80b"]
+[ext_resource type="Texture2D" uid="uid://bgvolxqrb3lbm" path="res://Meteor/sprites/brown/meteorBrown_small.png" id="18_gtu62"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wog4g"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_5fnwl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.21088435, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hmbgl"]
+curve = SubResource("Curve_5fnwl")
+
+[sub_resource type="Curve" id="Curve_1fei5"]
+_data = [Vector2(0.35374147, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0hnyk"]
+curve = SubResource("Curve_1fei5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qjxde"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-24, 0, 0)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(-1, 0, 0)
+spread = 24.0
+initial_velocity_min = 315.78998
+initial_velocity_max = 783.62
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_0hnyk")
+alpha_curve = SubResource("CurveTexture_hmbgl")
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l6o2i"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CurveTexture" id="CurveTexture_2j80b"]
+curve = SubResource("Curve_5fnwl")
+
+[sub_resource type="Curve" id="Curve_gtu62"]
+_data = [Vector2(0.35374147, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y1vjp"]
+curve = SubResource("Curve_gtu62")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sv5fq"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+initial_velocity_min = 133.97
+initial_velocity_max = 387.72
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_y1vjp")
+alpha_curve = SubResource("CurveTexture_2j80b")
+anim_offset_max = 1.0
 
 [sub_resource type="Shader" id="2"]
 code = "shader_type canvas_item;
@@ -19,71 +95,136 @@ void fragment() {
 shader = SubResource("2")
 shader_parameter/brightness = 0.444
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v04a0"]
-atlas = ExtResource("2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_annq7"]
+atlas = ExtResource("7_ud3wa")
 region = Rect2(0, 0, 101, 84)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h70af"]
-atlas = ExtResource("3")
-region = Rect2(0, 0, 120, 98)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pkj3b"]
-atlas = ExtResource("4")
-region = Rect2(0, 0, 89, 82)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xyfxc"]
-atlas = ExtResource("1")
-region = Rect2(0, 0, 98, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_42iem"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v04a0")
+"texture": ExtResource("3_y1vjp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h70af")
+"texture": ExtResource("4_sv5fq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pkj3b")
+"texture": ExtResource("5_fmia1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xyfxc")
+"texture": ExtResource("6_v4lv2")
 }],
 "loop": true,
-"name": &"default",
+"name": &"brown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_annq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rpylb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b8ba1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nkmu4")
+}],
+"loop": true,
+"name": &"grey",
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="4"]
-resource_name = "hit"
+[sub_resource type="Animation" id="Animation_04pl8"]
+resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:self_modulate")
-tracks/0/interp = 2
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="4"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1.5, 1.5, 1.5, 1), Color(1, 1, 1, 1)]
+"values": [Vector2(0.85, 0.85), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hcwx"]
 _data = {
+&"RESET": SubResource("Animation_04pl8"),
 &"hit": SubResource("4")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_04pl8"]
+random_pitch = 1.3348398
+streams_count = 3
+stream_0/stream = ExtResource("6_aqpj4")
+stream_1/stream = ExtResource("7_410de")
+stream_2/stream = ExtResource("8_v1t8t")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ng7bc"]
+random_pitch = 1.3348398
+streams_count = 2
+stream_0/stream = ExtResource("9_6emsu")
+stream_1/stream = ExtResource("10_i6mmx")
 
 [node name="Meteor" type="Node2D" unique_id=1279157368]
 script = ExtResource("5")
 
+[node name="HitParticles" type="GPUParticles2D" parent="." unique_id=1813476851]
+top_level = true
+z_index = -1
+material = SubResource("CanvasItemMaterial_wog4g")
+emitting = false
+texture = ExtResource("2_gtu62")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-369.46948, -226.94875, 497.46948, 443.63336)
+process_material = SubResource("ParticleProcessMaterial_qjxde")
+
+[node name="DestroyParticles" type="GPUParticles2D" parent="." unique_id=1763761382]
+material = SubResource("CanvasItemMaterial_l6o2i")
+emitting = false
+amount = 16
+texture = ExtResource("3_ng7bc")
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-369.46948, -226.94875, 497.46948, 443.63336)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_sv5fq")
+
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2065285315]
 material = SubResource("3")
 sprite_frames = SubResource("SpriteFrames_42iem")
-
-[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=120949643]
-resources = [PackedStringArray("0", "1", "2", "3"), [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("1")]]
+animation = &"grey"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1325112020]
 libraries/ = SubResource("AnimationLibrary_8hcwx")
+
+[node name="Hit" type="AudioStreamPlayer" parent="." unique_id=1880102890]
+stream = SubResource("AudioStreamRandomizer_04pl8")
+
+[node name="Destroy" type="AudioStreamPlayer" parent="." unique_id=1071085734]
+stream = SubResource("AudioStreamRandomizer_ng7bc")
+
+[node name="ParticleTextures" type="ResourcePreloader" parent="." unique_id=1415653995]
+resources = [PackedStringArray("destroy_brown", "destroy_grey", "hit_brown", "hit_grey"), [ExtResource("17_2j80b"), ExtResource("3_ng7bc"), ExtResource("18_gtu62"), ExtResource("2_gtu62")]]

@@ -3,7 +3,7 @@ class_name Game
 
 @onready var meteor: Meteor = $World/Meteor
 @onready var player: Player = $World/Player
-@onready var lasers: Node2D = $World/Lasersas
+@onready var lasers: Node2D = $World/Lasers
 @onready var exit_position: float = 1240.0 - meteor.radius
 #----------------Utility Functions----------------#
 
@@ -22,16 +22,16 @@ var expression := Expression.new()
 var skips = 3
 
 @onready var inputs = [
-	$'UI/OperationPanel/Numpad/Row3/0',
-	$'UI/OperationPanel/Numpad/Row2/1',
-	$'UI/OperationPanel/Numpad/Row2/2',
-	$'UI/OperationPanel/Numpad/Row2/3',
-	$'UI/OperationPanel/Numpad/Row1/4',
-	$'UI/OperationPanel/Numpad/Row1/5',
-	$'UI/OperationPanel/Numpad/Row1/6',
-	$'UI/OperationPanel/Numpad/Row0/7',
-	$'UI/OperationPanel/Numpad/Row0/8',
-	$'UI/OperationPanel/Numpad/Row0/9'
+	%'Numpad/Row3/0',
+	%'Numpad/Row2/1',
+	%'Numpad/Row2/2',
+	%'Numpad/Row2/3',
+	%'Numpad/Row1/4',
+	%'Numpad/Row1/5',
+	%'Numpad/Row1/6',
+	%'Numpad/Row0/7',
+	%'Numpad/Row0/8',
+	%'Numpad/Row0/9'
 ]
 
 func _process(_delta: float) -> void:
@@ -44,13 +44,13 @@ func _process(_delta: float) -> void:
 		if xcollision(meteor, laser):
 			meteor.hit(laser)
 	for i in range(10):
-		if Input.is_key_pressed(KEY_0 + i):
+		if Input.is_action_just_pressed(str(i)):
 			_input_entered(i)
 var active_operations: Array[String]
 func _ready():
 	var ops: Dictionary[String, bool] = Preferences.saved.operations
 	active_operations = ops.keys().filter(func(key): return ops[key])
-	
+	player.got_stunned.connect(new_op)
 	$UI/Skip.text = tr("game_button_skips") % 3
 	Global.time = 0
 	Global.op = 0
@@ -60,12 +60,16 @@ func _ready():
 	new_op()
 
 func _input_entered(num):
+	if player.stunned: return
 	if num == answer:
-		$World/Player.shoot()
+		player.shoot()
 		Global.op += 1
 		new_op()
+	else:
+		player.malfunct_shot()
 
 func new_op():
+	player.malfunction_count = 0
 	if active_operations.is_empty():
 		answer = int(NAN)
 		$UI/OperationPanel/Operation.text = "0 / 0 (:"

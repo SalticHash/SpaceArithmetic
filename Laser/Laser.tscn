@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://cdcic1da3b6oq"]
 
 [ext_resource type="Texture2D" uid="uid://c0tsl43pgtywg" path="res://Laser/laser.png" id="1"]
-[ext_resource type="Script" uid="uid://d0saerjxgjlwr" path="res://Laser/Laser.gd" id="2"]
+[ext_resource type="Script" uid="uid://dro18rcg8g08w" path="res://Laser/Laser.gd" id="2"]
 
-[node name="Laser" type="Node2D" unique_id=557172059]
-rotation = 1.5708
-script = ExtResource("2")
-
-[node name="Sprite" type="Sprite2D" parent="." unique_id=977790153]
+[node name="Laser" type="Sprite2D" unique_id=977790153]
+z_index = -2
 texture = ExtResource("1")
+vframes = 4
+script = ExtResource("2")

@@ -1,22 +1,366 @@
 [gd_scene format=3 uid="uid://lip7djc6lsa2"]
 
-[ext_resource type="Texture2D" uid="uid://d0qi6gdgdkjn6" path="res://Player/ship.png" id="1"]
-[ext_resource type="AudioStream" uid="uid://trys0is7p8i6" path="res://Laser/laser1.ogg" id="3_ddoul"]
+[ext_resource type="Texture2D" uid="uid://crhfo0sqmy7bg" path="res://Player/sprites/blue/playerShip2_blue.png" id="2_p7tob"]
+[ext_resource type="AudioStream" uid="uid://trys0is7p8i6" path="res://Player/sounds/laser1.ogg" id="3_ddoul"]
+[ext_resource type="Texture2D" uid="uid://35llpo30jetl" path="res://Player/sprites/blue/playerShip3_blue.png" id="3_dm7nj"]
 [ext_resource type="Script" uid="uid://cj3m7iv4wrk5j" path="res://Player/Player.gd" id="4"]
-[ext_resource type="AudioStream" uid="uid://d3gvlnsw2wwmp" path="res://Laser/laser2.ogg" id="4_8g4oa"]
+[ext_resource type="Texture2D" uid="uid://cg2hwn0s38t8u" path="res://Player/sprites/green/playerShip2_green.png" id="4_3mea3"]
+[ext_resource type="AudioStream" uid="uid://d3gvlnsw2wwmp" path="res://Player/sounds/laser2.ogg" id="4_8g4oa"]
+[ext_resource type="Texture2D" uid="uid://cgu2i5s8qx4cf" path="res://Player/sprites/green/playerShip3_green.png" id="5_7v5gs"]
+[ext_resource type="Texture2D" uid="uid://d4jymh0kau5pp" path="res://Player/sprites/orange/playerShip1_orange.png" id="6_8sa4y"]
+[ext_resource type="Texture2D" uid="uid://dhvko4pdmsjpx" path="res://Player/sprites/orange/playerShip2_orange.png" id="7_3nb2p"]
+[ext_resource type="Texture2D" uid="uid://cxt4gaoqs8ksc" path="res://Player/sprites/orange/playerShip3_orange.png" id="8_d7xyo"]
+[ext_resource type="Texture2D" uid="uid://bnruwa17f4gfl" path="res://Player/sprites/red/playerShip1_red.png" id="9_evw08"]
+[ext_resource type="Texture2D" uid="uid://blfrybmx2u7up" path="res://Player/sprites/red/playerShip2_red.png" id="10_roy6y"]
+[ext_resource type="Texture2D" uid="uid://bxrl0ew5k6ojw" path="res://Player/sprites/red/playerShip3_red.png" id="11_u5tep"]
+[ext_resource type="Texture2D" uid="uid://bcau4pgfrs6rs" path="res://Player/sprites/smoke.png" id="12_8sa4y"]
+[ext_resource type="Texture2D" uid="uid://cbtir0dgmbney" path="res://Player/sprites/sparks.png" id="13_3nb2p"]
+[ext_resource type="AudioStream" uid="uid://mdyac0a0iwtf" path="res://Player/sounds/malfunct1.mp3" id="14_3mea3"]
+[ext_resource type="AudioStream" uid="uid://dk6ihlspy48cw" path="res://Player/sounds/malfunct2.mp3" id="15_7v5gs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps8ct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p7tob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dm7nj")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3mea3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7v5gs")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8sa4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3nb2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d7xyo")
+}],
+"loop": true,
+"name": &"orange",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_roy6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_evw08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u5tep")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d7xyo"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_evw08"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 32, 0)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 93.84
+initial_velocity_max = 93.84
+anim_speed_min = 1.0
+anim_speed_max = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3nb2p"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 32, 0)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 137.83
+initial_velocity_max = 149.56
+anim_speed_min = 1.0
+anim_speed_max = 2.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6ysni"]
 streams_count = 2
 stream_0/stream = ExtResource("3_ddoul")
 stream_1/stream = ExtResource("4_8g4oa")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p7tob"]
+random_pitch = 1.3348398
+streams_count = 2
+stream_0/stream = ExtResource("14_3mea3")
+stream_1/stream = ExtResource("15_7v5gs")
+
+[sub_resource type="Animation" id="Animation_8sa4y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/Smoke:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Sparks:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/InstantSmoke:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/InstantSparks:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3nb2p"]
+resource_name = "malfunct_shot"
+length = 0.5
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.125, 0.2, 0.25, 0.3, 0.35, 0.425, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(0, 8), Vector2(0, -6), Vector2(0, 6), Vector2(0, -4), Vector2(0, 4), Vector2(0, -2), Vector2(0, 2), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/InstantSmoke")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"restart"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/InstantSparks")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"restart"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_d7xyo"]
+resource_name = "shoot"
+length = 0.5
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-16, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3mea3"]
+resource_name = "stun"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5708, 20.420352248333657]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.050000004, 0.17907733, 0.2509259, 0.3860628, 0.45791137, 0.6279335, 0.6997821, 0.8046851, 0.8765337, 0.96666664, 1.0385152, 1.1, 1.1666669, 1.2166668, 1.2833334, 1.3333334, 1.4, 1.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(0, 8), Vector2(0, -6), Vector2(0, 8), Vector2(0, -6), Vector2(0, 8), Vector2(0, -6), Vector2(0, 8), Vector2(0, -6), Vector2(0, 8), Vector2(0, -6), Vector2(0, 8), Vector2(0, -6), Vector2(0, 6), Vector2(0, -4), Vector2(0, 4), Vector2(0, -2), Vector2(0, 2), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/Smoke:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Sparks:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_evw08"]
+_data = {
+&"RESET": SubResource("Animation_8sa4y"),
+&"malfunct_shot": SubResource("Animation_3nb2p"),
+&"shoot": SubResource("Animation_d7xyo"),
+&"stun": SubResource("Animation_3mea3")
+}
+
 [node name="Player" type="Node2D" unique_id=2020371452]
 script = ExtResource("4")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=281269995]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2099127343]
 rotation = 1.5708
-texture = ExtResource("1")
+sprite_frames = SubResource("SpriteFrames_ps8ct")
+animation = &"red"
+
+[node name="Smoke" type="GPUParticles2D" parent="Sprite" unique_id=1866752874]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_d7xyo")
+emitting = false
+texture = ExtResource("12_8sa4y")
+lifetime = 1.35
+process_material = SubResource("ParticleProcessMaterial_evw08")
+
+[node name="Sparks" type="GPUParticles2D" parent="Sprite" unique_id=838664363]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_d7xyo")
+emitting = false
+texture = ExtResource("13_3nb2p")
+lifetime = 1.35
+process_material = SubResource("ParticleProcessMaterial_evw08")
+
+[node name="InstantSmoke" type="GPUParticles2D" parent="Sprite" unique_id=2096917781]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_d7xyo")
+emitting = false
+amount = 4
+texture = ExtResource("12_8sa4y")
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_3nb2p")
+
+[node name="InstantSparks" type="GPUParticles2D" parent="Sprite" unique_id=1487732206]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_d7xyo")
+emitting = false
+amount = 4
+texture = ExtResource("13_3nb2p")
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_3nb2p")
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=1641513758]
 stream = SubResource("AudioStreamRandomizer_6ysni")
 pitch_scale = 2.0
+
+[node name="MalfunctShotSound" type="AudioStreamPlayer" parent="." unique_id=2000667328]
+stream = SubResource("AudioStreamRandomizer_p7tob")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1054726484]
+libraries/ = SubResource("AnimationLibrary_evw08")
+
+[node name="StunTimer" type="Timer" parent="." unique_id=1120935203]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="StunTimer" to="." method="stun_end"]

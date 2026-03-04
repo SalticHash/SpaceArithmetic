@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0tsl43pgtywg"
-path="res://.godot/imported/laser.png-30e75a1a9e8304e422842f9745376c3f.ctex"
+uid="uid://c7bhe1o0vnjfh"
+path="res://.godot/imported/meteorBrown_med.png-852405e9230bd16f702b5170bebca602.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Laser/laser.png"
-dest_files=["res://.godot/imported/laser.png-30e75a1a9e8304e422842f9745376c3f.ctex"]
+source_file="res://Meteor/sprites/brown/meteorBrown_med.png"
+dest_files=["res://.godot/imported/meteorBrown_med.png-852405e9230bd16f702b5170bebca602.ctex"]
 
 [params]
 

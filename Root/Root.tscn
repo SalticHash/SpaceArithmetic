@@ -32,6 +32,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Numpad" type="VBoxContainer" parent="UI/OperationPanel" unique_id=650112914]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
@@ -124,7 +125,7 @@ text = "game_button_skips"
 
 [node name="World" type="Node2D" parent="." unique_id=1772586919]
 
-[node name="Lasersas" type="Node2D" parent="World" unique_id=283330652]
+[node name="Lasers" type="Node2D" parent="World" unique_id=283330652]
 
 [node name="Player" parent="World" unique_id=1872658002 instance=ExtResource("3")]
 position = Vector2(150, 198)
