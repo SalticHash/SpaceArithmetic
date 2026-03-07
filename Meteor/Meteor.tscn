@@ -190,7 +190,6 @@ stream_1/stream = ExtResource("10_i6mmx")
 script = ExtResource("5")
 
 [node name="HitParticles" type="GPUParticles2D" parent="." unique_id=1813476851]
-top_level = true
 z_index = -1
 material = SubResource("CanvasItemMaterial_wog4g")
 emitting = false

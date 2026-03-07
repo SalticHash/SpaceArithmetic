@@ -45,12 +45,12 @@ func _ready():
 
 func _process(delta):
 	if destroyed: return
-	hit_particles.global_position = global_position
-	rotate(speed / 100 * delta * 60)
+	sprite.rotate(speed / 100 * delta * 60)
 	position.x += velocity.x * delta * 60
 	velocity.x = move_toward(velocity.x, speed, accel * delta * 60)
 signal got_destroyed
 func destroy():
+	if destroyed: return
 	destroyed = true
 	destroy_particles.restart()
 	destroy_sound.play()
@@ -62,6 +62,7 @@ func destroy():
 	got_destroyed.emit()
 
 func hit(laser: Laser):
+	if destroyed: return
 	animation.play("hit")
 	laser.queue_free()
 	velocity.x = hit_force
