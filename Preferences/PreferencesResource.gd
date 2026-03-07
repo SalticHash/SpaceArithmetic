@@ -8,3 +8,6 @@ class_name PreferencesResource
 	"mul": false,
 	"div": false
 }
+@export var timed_duration: float = 24.0
+@export var difficulty: int = 0
+@export var window_mode: DisplayServer.WindowMode = DisplayServer.WINDOW_MODE_WINDOWED

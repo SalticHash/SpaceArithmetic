@@ -6,3 +6,7 @@ func _play_pressed():
 func _ready():
 	$Container/Time.text = tr("menu_win_time") % Global.time
 	$Container/Op.text = tr("menu_win_operations") % Global.op
+
+
+func _on_play_again_pressed() -> void:
+	get_tree().change_scene_to_file("res://Root/Root.tscn")

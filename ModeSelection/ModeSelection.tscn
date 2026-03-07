@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c5ryml7njyjqj"]
+
+[ext_resource type="Script" uid="uid://2xwof6ncc0v" path="res://ModeSelection/mode_selection.gd" id="1_2xvts"]
+[ext_resource type="Texture2D" uid="uid://bhh2hgjenvbdl" path="res://ModeSelection/sprites/mode_covers/original.png" id="1_ff3t1"]
+[ext_resource type="Texture2D" uid="uid://dpqbmlooegam" path="res://ModeSelection/sprites/mode_covers/timed_en.png" id="2_2xvts"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ff3t1"]
+font_size = 38
+
+[node name="ModeSelection" type="Control" unique_id=262342380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2xvts")
+
+[node name="Title" type="Label" parent="." unique_id=611584224]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.0
+offset_top = 48.0
+offset_right = 175.0
+offset_bottom = 101.0
+grow_horizontal = 2
+text = "menu_mode_select"
+label_settings = SubResource("LabelSettings_ff3t1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Modes" type="HBoxContainer" parent="." unique_id=220352463]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = -151.0
+offset_right = 504.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="original" type="TextureButton" parent="Modes" unique_id=242535141]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("1_ff3t1")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="timed" type="TextureButton" parent="Modes" unique_id=1348372840]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_2xvts")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="GoBack" type="Button" parent="." unique_id=1708847994]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -239.0
+offset_top = -92.0
+offset_right = 239.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 38
+text = "menu_go_back"
+
+[connection signal="pressed" from="GoBack" to="." method="_on_go_back_pressed"]

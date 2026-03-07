@@ -123,6 +123,14 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 24
 text = "game_button_skips"
 
+[node name="GoBack" type="Button" parent="UI" unique_id=73176268]
+layout_mode = 1
+offset_right = 230.0
+offset_bottom = 42.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+text = "menu_go_back"
+
 [node name="World" type="Node2D" parent="." unique_id=1772586919]
 
 [node name="Lasers" type="Node2D" parent="World" unique_id=283330652]
@@ -137,4 +145,5 @@ position = Vector2(874, 198)
 autostart = true
 
 [connection signal="pressed" from="UI/Skip" to="." method="Skip_pressed"]
+[connection signal="pressed" from="UI/GoBack" to="." method="_on_go_back_pressed"]
 [connection signal="timeout" from="Timer" to="." method="timeout"]

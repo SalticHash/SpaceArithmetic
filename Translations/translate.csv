@@ -4,15 +4,32 @@ menu_title,Space Arithmetic,Aritmética Espacial
 game_button_skips,Skips: %d,Saltos: %d
 menu_loose,You lost!,¡Perdiste!
 menu_go_back,Go back to menu,Volver al menu
+menu_play_again,Play Again!,Volver a Jugar!
 menu_preferences,Preferences,Preferencias
 menu_option_locale,Language,Idioma
 menu_option_operations,Operations,Operaciones
 en,English,English
 es,Español,Español
 operation_sum,Addition (+),Suma (+)
-operation_sub,Substraction (-),Resta (-)
-operation_mul,Multiplication (*),Multiplicación (*)
-operation_div,Division (/),División (/)
+operation_sub,Substraction (−),Resta (−)
+operation_mul,Multiplication (×),Multiplicación (×)
+operation_div,Division (÷),División (÷)
 menu_win_message,You won!,¡Ganaste!
 menu_win_time,Time: %ds,Tiempo: %ds
 menu_win_operations,Operations: %d,Operaciones: %d
+menu_mode_select,Select a Mode:,Selecciona un Modo:
+
+menu_option_screen,Screen Mode,Modo de Pantalla
+option_fullscreen,Fullscreen,Pantalla Completa
+option_windowed,Windowed,Ventana
+option_windowed_maximized,Windowed Maximized,Ventana Maximizada
+
+menu_game_settings,Game Settings,Ajustes de Partida
+menu_game_difficulty,Difficulty,Dificultad
+menu_dif_easier,Easier,Muy Facil
+menu_dif_easy,Easy,Facil
+menu_dif_regular,Regular,Regular
+menu_dif_hard,Hard,Dificil
+menu_dif_harder,Harder,Muy Dificil
+menu_timed_duration,Timed Duration,Duracion Contratiempo
+menu_timed_operation_count,Timed Operation Count: %03d,Operaciones en Contratiempo: %d

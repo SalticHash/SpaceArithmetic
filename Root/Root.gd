@@ -33,10 +33,12 @@ var skips = 3
 	%'Numpad/Row0/8',
 	%'Numpad/Row0/9'
 ]
-
+func win() -> void:
+	get_tree().change_scene_to_file("res://Win/Win.tscn")
+	
 func _process(_delta: float) -> void:
 	if meteor.global_position.x > exit_position:
-		get_tree().change_scene_to_file("res://Win/Win.tscn")
+		win()
 	if xcollision(meteor, player):
 		get_tree().change_scene_to_file("res://Lose/Lose.tscn")
 	if !lasers: return
@@ -58,6 +60,7 @@ func _ready():
 		inputs[i].connect('pressed', func(): _input_entered(i))
 	randomize()
 	new_op()
+	meteor.got_destroyed.connect(win)
 
 func _input_entered(num):
 	if player.stunned: return
@@ -104,7 +107,7 @@ func generate_operation(type: String):
 			return [
 				num1, num2,
 				abs(num1 - num2),
-				"%d - %d" % [max(num1, num2), min(num1, num2)]
+				"%d − %d" % [max(num1, num2), min(num1, num2)]
 			]
 		"mul":
 			var nums = mul_pairs.pick_random()
@@ -114,7 +117,7 @@ func generate_operation(type: String):
 			return [
 				num1, num2,
 				num1 * num2,
-				"%d * %d" % [num1, num2]
+				"%d × %d" % [num1, num2]
 			]
 		"div":
 			var num2: int = randi_range(1, 9)
@@ -122,7 +125,7 @@ func generate_operation(type: String):
 			return [
 				num1, num2,
 				round(float(num1) / float(num2)),
-				"%d / %d" % [num1, num2]
+				"%d ÷ %d" % [num1, num2]
 			]
 
 
@@ -139,3 +142,7 @@ func Skip_pressed():
 
 func timeout():
 	Global.time += 1
+
+
+func _on_go_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://ModeSelection/ModeSelection.tscn")

@@ -20,8 +20,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 117.0
-offset_right = -117.0
+offset_left = 22.0
+offset_right = -22.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -31,51 +31,160 @@ layout_mode = 2
 text = "menu_preferences"
 vertical_alignment = 1
 
-[node name="LocaleTitle" type="Label" parent="Alignment" unique_id=2078309406]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Alignment" unique_id=1860905871]
+layout_mode = 2
+theme_override_constants/separation = 54
+
+[node name="HBoxContainer3" type="VBoxContainer" parent="Alignment/HBoxContainer2" unique_id=1866253808]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LocaleTitle" type="Label" parent="Alignment/HBoxContainer2/HBoxContainer3" unique_id=2078309406]
 layout_mode = 2
 text = "menu_option_locale"
 vertical_alignment = 1
 
-[node name="Locale" type="OptionButton" parent="Alignment" unique_id=1239797154]
+[node name="Locale" type="OptionButton" parent="Alignment/HBoxContainer2/HBoxContainer3" unique_id=1239797154]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
-alignment = 1
 item_count = 2
 popup/item_0/text = "en"
 popup/item_0/id = 0
 popup/item_1/text = "es"
 popup/item_1/id = 1
 
-[node name="OperationsTitle" type="Label" parent="Alignment" unique_id=1422644707]
+[node name="HBoxContainer4" type="VBoxContainer" parent="Alignment/HBoxContainer2" unique_id=1485476919]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScreenTitle" type="Label" parent="Alignment/HBoxContainer2/HBoxContainer4" unique_id=1689474885]
+layout_mode = 2
+text = "menu_option_screen"
+vertical_alignment = 1
+
+[node name="Screen" type="OptionButton" parent="Alignment/HBoxContainer2/HBoxContainer4" unique_id=655525657]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "option_windowed"
+popup/item_0/id = 0
+popup/item_1/text = "option_fullscreen"
+popup/item_1/id = 3
+
+[node name="HSeparator" type="HSeparator" parent="Alignment" unique_id=507859407]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Alignment" unique_id=1623302572]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Operations" type="VBoxContainer" parent="Alignment/HBoxContainer" unique_id=835400068]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="OperationsTitle" type="Label" parent="Alignment/HBoxContainer/Operations" unique_id=1422644707]
 layout_mode = 2
 text = "menu_option_operations"
 vertical_alignment = 1
 
-[node name="Operations" type="VBoxContainer" parent="Alignment" unique_id=835400068]
-unique_name_in_owner = true
-layout_mode = 2
-alignment = 1
-
-[node name="sum" type="CheckBox" parent="Alignment/Operations" unique_id=1118243293]
+[node name="sum" type="CheckBox" parent="Alignment/HBoxContainer/Operations" unique_id=1118243293]
 layout_mode = 2
 text = "operation_sum"
 
-[node name="sub" type="CheckBox" parent="Alignment/Operations" unique_id=648622864]
+[node name="sub" type="CheckBox" parent="Alignment/HBoxContainer/Operations" unique_id=648622864]
 layout_mode = 2
 text = "operation_sub"
 
-[node name="mul" type="CheckBox" parent="Alignment/Operations" unique_id=1383359379]
+[node name="mul" type="CheckBox" parent="Alignment/HBoxContainer/Operations" unique_id=1383359379]
 layout_mode = 2
 text = "operation_mul"
 
-[node name="div" type="CheckBox" parent="Alignment/Operations" unique_id=2101120457]
+[node name="div" type="CheckBox" parent="Alignment/HBoxContainer/Operations" unique_id=2101120457]
 layout_mode = 2
 text = "operation_div"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Alignment/HBoxContainer" unique_id=1223305577]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Options" type="Label" parent="Alignment/HBoxContainer/VBoxContainer2" unique_id=1812893922]
+layout_mode = 2
+text = "menu_game_settings"
+
+[node name="GameDifficulty" type="VBoxContainer" parent="Alignment/HBoxContainer/VBoxContainer2" unique_id=1368678137]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Alignment/HBoxContainer/VBoxContainer2/GameDifficulty" unique_id=1580511096]
+layout_mode = 2
+text = "menu_game_difficulty"
+
+[node name="Slider" type="HBoxContainer" parent="Alignment/HBoxContainer/VBoxContainer2/GameDifficulty" unique_id=257798636]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="DifLabel" type="Label" parent="Alignment/HBoxContainer/VBoxContainer2/GameDifficulty/Slider" unique_id=572533117]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(164, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "menu_dif_regular"
+vertical_alignment = 1
+
+[node name="DifSlider" type="HSlider" parent="Alignment/HBoxContainer/VBoxContainer2/GameDifficulty/Slider" unique_id=1835367072]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -2.0
+max_value = 2.0
+tick_count = 5
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="TimedSpeed" type="VBoxContainer" parent="Alignment/HBoxContainer/VBoxContainer2" unique_id=1326391819]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Alignment/HBoxContainer/VBoxContainer2/TimedSpeed" unique_id=523600611]
+layout_mode = 2
+text = "menu_timed_duration"
+
+[node name="Slider" type="HBoxContainer" parent="Alignment/HBoxContainer/VBoxContainer2/TimedSpeed" unique_id=218616738]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TimedDurationLabel" type="Label" parent="Alignment/HBoxContainer/VBoxContainer2/TimedSpeed/Slider" unique_id=1124395176]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "1m 20s"
+vertical_alignment = 1
+
+[node name="TimedDuration" type="HSlider" parent="Alignment/HBoxContainer/VBoxContainer2/TimedSpeed/Slider" unique_id=395570881]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 5.0
+max_value = 120.0
+value = 24.0
+
+[node name="OpCount" type="Label" parent="Alignment/HBoxContainer/VBoxContainer2" unique_id=1498288549]
+unique_name_in_owner = true
+layout_mode = 2
+text = "menu_timed_operation_count"
 
 [node name="Exit" type="Button" parent="Alignment" unique_id=1766977017]
 layout_mode = 2
 text = "menu_go_back"
 
-[connection signal="item_selected" from="Alignment/Locale" to="." method="_on_locale_selected"]
+[connection signal="item_selected" from="Alignment/HBoxContainer2/HBoxContainer3/Locale" to="." method="_on_locale_selected"]
+[connection signal="item_selected" from="Alignment/HBoxContainer2/HBoxContainer4/Screen" to="." method="_on_screen_item_selected"]
+[connection signal="value_changed" from="Alignment/HBoxContainer/VBoxContainer2/GameDifficulty/Slider/DifSlider" to="." method="_on_dif_slider_value_changed"]
+[connection signal="value_changed" from="Alignment/HBoxContainer/VBoxContainer2/TimedSpeed/Slider/TimedDuration" to="." method="_on_timed_duration_value_changed"]
 [connection signal="pressed" from="Alignment/Exit" to="." method="_on_exit_pressed"]

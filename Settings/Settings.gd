@@ -5,16 +5,26 @@ const locales_index = {
 	"es": 1
 }
 
-func set_language(locale: String):
+func set_language(locale: String, setup: bool = false):
 	TranslationServer.set_locale(locale)
-	Preferences.saved.locale = locale
-	Preferences.save_pr()
+	%DifLabel.text = get_dificulty(round(%DifSlider.value))
+	%OpCount.text = tr("menu_timed_operation_count") % Global.get_timed_operation_count()
+	if !setup:
+		Preferences.saved.locale = locale
+		Preferences.save_pr()
+	else:
+		%Locale.select(locales_index[Preferences.saved.locale])
+		
 	
 
 func _ready() -> void:
-	%Locale.select(locales_index[Preferences.saved.locale])
-	set_language(Preferences.saved.locale)
-	for operation: CheckBox in %Operations.get_children():
+	set_language(Preferences.saved.locale, true)
+	_on_timed_duration_value_changed(Preferences.saved.timed_duration, true)
+	_on_dif_slider_value_changed(Preferences.saved.difficulty, true)
+	_on_screen_item_selected(Preferences.saved.window_mode, true)
+
+	for operation in %Operations.get_children():
+		if operation is not CheckBox: continue
 		var op: String = operation.name
 		var active: bool = Preferences.saved.operations[op]
 		operation.set_pressed_no_signal(active)
@@ -39,3 +49,54 @@ func _on_locale_selected(index: int) -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://Menu/Menu.tscn")
+
+func float_to_time(s: float) -> String:
+	var seconds = int(s)
+	var minutes = int(s / 60.0)
+	seconds = seconds % 60
+	return "%dm %02ds" % [minutes, seconds]
+
+func _on_timed_duration_value_changed(value: float, setup: bool = false) -> void:
+	%TimedDurationLabel.text = float_to_time(value)
+	if !setup:
+		Preferences.saved.timed_duration = value
+		Preferences.save_pr()
+	else:
+		%TimedDuration.set_value_no_signal(value)
+
+	
+	%OpCount.text = tr("menu_timed_operation_count") % Global.get_timed_operation_count()
+
+const dificulties = [
+	"menu_dif_easier",
+	"menu_dif_easy",
+	"menu_dif_regular",
+	"menu_dif_hard",
+	"menu_dif_harder",
+]
+func get_dificulty(v: int) -> String:
+	return tr(dificulties[v + 2])
+
+func _on_dif_slider_value_changed(value: float, setup: bool = false) -> void:
+	var v = roundi(value)
+	%DifLabel.text = get_dificulty(v)
+	if !setup:
+		Preferences.saved.difficulty = v
+		Preferences.save_pr()
+	else:
+		%DifSlider.set_value_no_signal(value)
+	%OpCount.text = tr("menu_timed_operation_count") % Global.get_timed_operation_count()
+
+func _on_screen_item_selected(index: int, setup: bool = false) -> void:
+	if !setup:
+		var mode = %Screen.get_item_id(index)
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN or \
+			mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(mode)
+		Preferences.saved.window_mode = mode
+		Preferences.save_pr()
+	else:
+		var mode = index
+		var idx = %Screen.get_item_index(mode)
+		%Screen.select(idx)
+		

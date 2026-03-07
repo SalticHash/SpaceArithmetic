@@ -39,7 +39,6 @@ Preferences="*uid://db6213n72g857"
 
 window/size/viewport_width=1024
 window/size/viewport_height=576
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -125,6 +124,9 @@ texture={
 
 [internationalization]
 
+locale/translation_remaps={
+"res://ModeSelection/sprites/mode_covers/timed_en.png": PackedStringArray("res://ModeSelection/sprites/mode_covers/timed_en.png:en", "res://ModeSelection/sprites/mode_covers/timed_es.png:es")
+}
 locale/translations=PackedStringArray("res://Translations/translate.en.translation", "res://Translations/translate.es.translation")
 locale/locale_filter_mode=0
 

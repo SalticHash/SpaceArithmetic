@@ -17,6 +17,7 @@ func _ready() -> void:
 		Preferences.saved.locale = best_locale
 		save_pr()
 	TranslationServer.set_locale(saved.locale)
+	DisplayServer.window_set_mode(saved.window_mode)
 
 func create_pr() -> void:
 	print("Creating preferences...")

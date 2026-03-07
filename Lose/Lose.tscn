@@ -33,9 +33,15 @@ text = "menu_loose"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Container" unique_id=1615828973]
+[node name="PlayAgain" type="Button" parent="Container" unique_id=650636059]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "menu_play_again"
+
+[node name="GoBack" type="Button" parent="Container" unique_id=1615828973]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "menu_go_back"
 
-[connection signal="pressed" from="Container/Button" to="." method="_play_pressed"]
+[connection signal="pressed" from="Container/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Container/GoBack" to="." method="_play_pressed"]
