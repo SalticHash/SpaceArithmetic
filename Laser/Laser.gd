@@ -10,4 +10,4 @@ func _ready() -> void:
 		&"blue": frame = 3
 
 func _process(delta):
-	position.x += 20 * delta * 60
+	position.x += 20 * delta * 60 * scale.x

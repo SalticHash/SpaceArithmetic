@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cknst81okd5pm"]
 
+[ext_resource type="Theme" uid="uid://deia1qyek31k2" path="res://Theme/menu.theme" id="1_e56cd"]
 [ext_resource type="Script" uid="uid://bg08xwjhxcirv" path="res://Menu/Menu.gd" id="3"]
 
 [node name="Menu" type="Control" unique_id=386253071]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_e56cd")
 script = ExtResource("3")
 
 [node name="Container" type="VBoxContainer" parent="." unique_id=1112345850]
@@ -25,21 +27,18 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Container" unique_id=1888193084]
+[node name="Label" type="Label" parent="Container" unique_id=1761162222]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "menu_title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Play" type="Button" parent="Container" unique_id=552051909]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
 text = "menu_button_play"
 
 [node name="Settings" type="Button" parent="Container" unique_id=1041466579]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
 text = "menu_preferences"
 
 [connection signal="pressed" from="Container/Play" to="." method="_play_pressed"]

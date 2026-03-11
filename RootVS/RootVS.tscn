@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://p8srnuttxvw3"]
+
+[ext_resource type="Script" uid="uid://47o8pagecmvm" path="res://RootVS/RootVS.gd" id="1_3kpma"]
+[ext_resource type="Theme" uid="uid://deia1qyek31k2" path="res://Theme/menu.theme" id="2_bo03u"]
+[ext_resource type="PackedScene" uid="uid://lip7djc6lsa2" path="res://Player/Player.tscn" id="3_jk3si"]
+[ext_resource type="PackedScene" uid="uid://dec5xbafkfnnw" path="res://Meteor/Meteor.tscn" id="4_pcg5j"]
+
+[node name="Root" type="Node" unique_id=1855274137]
+script = ExtResource("1_3kpma")
+
+[node name="UI" type="Control" parent="." unique_id=1583461810]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_bo03u")
+
+[node name="OperationPanel1" type="VBoxContainer" parent="UI" unique_id=851626751]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.252
+anchor_bottom = 1.0
+offset_left = 258.0
+offset_right = 575.952
+offset_bottom = -318.0
+grow_vertical = 2
+rotation = 1.5707964
+
+[node name="Operation1" type="Label" parent="UI/OperationPanel1" unique_id=891347642]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x + y = ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Numpad1" type="VBoxContainer" parent="UI/OperationPanel1" unique_id=650112914]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Row0" type="HBoxContainer" parent="UI/OperationPanel1/Numpad1" unique_id=684702587]
+layout_mode = 2
+alignment = 1
+
+[node name="7" type="Button" parent="UI/OperationPanel1/Numpad1/Row0" unique_id=390886150]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+
+[node name="8" type="Button" parent="UI/OperationPanel1/Numpad1/Row0" unique_id=29174020]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8"
+
+[node name="9" type="Button" parent="UI/OperationPanel1/Numpad1/Row0" unique_id=525305461]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9"
+
+[node name="Row1" type="HBoxContainer" parent="UI/OperationPanel1/Numpad1" unique_id=1864334466]
+layout_mode = 2
+alignment = 1
+
+[node name="4" type="Button" parent="UI/OperationPanel1/Numpad1/Row1" unique_id=1577651619]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="5" type="Button" parent="UI/OperationPanel1/Numpad1/Row1" unique_id=585650598]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+
+[node name="6" type="Button" parent="UI/OperationPanel1/Numpad1/Row1" unique_id=1310364999]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+
+[node name="Row2" type="HBoxContainer" parent="UI/OperationPanel1/Numpad1" unique_id=1044199745]
+layout_mode = 2
+alignment = 1
+
+[node name="1" type="Button" parent="UI/OperationPanel1/Numpad1/Row2" unique_id=1336401245]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="2" type="Button" parent="UI/OperationPanel1/Numpad1/Row2" unique_id=2097546785]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+
+[node name="3" type="Button" parent="UI/OperationPanel1/Numpad1/Row2" unique_id=395408156]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+
+[node name="Row3" type="HBoxContainer" parent="UI/OperationPanel1/Numpad1" unique_id=892847002]
+layout_mode = 2
+alignment = 1
+
+[node name="0" type="Button" parent="UI/OperationPanel1/Numpad1/Row3" unique_id=1882296664]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="OperationPanel2" type="VBoxContainer" parent="UI" unique_id=506024529]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.748
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.047973633
+offset_top = 576.0
+offset_right = 318.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+
+[node name="Operation2" type="Label" parent="UI/OperationPanel2" unique_id=730333268]
+unique_name_in_owner = true
+layout_mode = 2
+text = "x + y = ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Numpad2" type="VBoxContainer" parent="UI/OperationPanel2" unique_id=352425961]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Row0" type="HBoxContainer" parent="UI/OperationPanel2/Numpad2" unique_id=1875557798]
+layout_mode = 2
+alignment = 1
+
+[node name="7" type="Button" parent="UI/OperationPanel2/Numpad2/Row0" unique_id=1640378623]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+
+[node name="8" type="Button" parent="UI/OperationPanel2/Numpad2/Row0" unique_id=1719513218]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8"
+
+[node name="9" type="Button" parent="UI/OperationPanel2/Numpad2/Row0" unique_id=691934893]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9"
+
+[node name="Row1" type="HBoxContainer" parent="UI/OperationPanel2/Numpad2" unique_id=883384283]
+layout_mode = 2
+alignment = 1
+
+[node name="4" type="Button" parent="UI/OperationPanel2/Numpad2/Row1" unique_id=494144218]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="5" type="Button" parent="UI/OperationPanel2/Numpad2/Row1" unique_id=366557149]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+
+[node name="6" type="Button" parent="UI/OperationPanel2/Numpad2/Row1" unique_id=28488046]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+
+[node name="Row2" type="HBoxContainer" parent="UI/OperationPanel2/Numpad2" unique_id=1486531157]
+layout_mode = 2
+alignment = 1
+
+[node name="1" type="Button" parent="UI/OperationPanel2/Numpad2/Row2" unique_id=172701723]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="2" type="Button" parent="UI/OperationPanel2/Numpad2/Row2" unique_id=898925117]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+
+[node name="3" type="Button" parent="UI/OperationPanel2/Numpad2/Row2" unique_id=1364593152]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+
+[node name="Row3" type="HBoxContainer" parent="UI/OperationPanel2/Numpad2" unique_id=782672530]
+layout_mode = 2
+alignment = 1
+
+[node name="0" type="Button" parent="UI/OperationPanel2/Numpad2/Row3" unique_id=400169063]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="GoBack" type="Button" parent="UI" unique_id=73176268]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_right = 124.0
+offset_bottom = 50.0
+grow_horizontal = 2
+focus_mode = 0
+text = "menu_go_back"
+
+[node name="World" type="Node2D" parent="." unique_id=1772586919]
+
+[node name="Lasers" type="Node2D" parent="World" unique_id=283330652]
+
+[node name="Player1" parent="World" unique_id=1872658002 instance=ExtResource("3_jk3si")]
+position = Vector2(312, 288)
+
+[node name="Player2" parent="World" unique_id=2020371452 instance=ExtResource("3_jk3si")]
+position = Vector2(713, 288)
+scale = Vector2(-1, 1)
+
+[node name="Meteor" parent="World" unique_id=1321051757 instance=ExtResource("4_pcg5j")]
+position = Vector2(512, 288)
+
+[node name="Timer" type="Timer" parent="." unique_id=966960628]
+autostart = true
+
+[connection signal="pressed" from="UI/GoBack" to="." method="_on_go_back_pressed"]
+[connection signal="timeout" from="Timer" to="." method="timeout"]

@@ -48,7 +48,7 @@ func _on_locale_selected(index: int) -> void:
 	set_language(locales_index.keys()[index])
 
 func _on_exit_pressed() -> void:
-	get_tree().change_scene_to_file("res://Menu/Menu.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://Menu/Menu.tscn")
 
 func float_to_time(s: float) -> String:
 	var seconds = int(s)
@@ -64,7 +64,6 @@ func _on_timed_duration_value_changed(value: float, setup: bool = false) -> void
 	else:
 		%TimedDuration.set_value_no_signal(value)
 
-	
 	%OpCount.text = tr("menu_timed_operation_count") % Global.get_timed_operation_count()
 
 const dificulties = [

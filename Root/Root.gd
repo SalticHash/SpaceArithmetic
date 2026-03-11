@@ -34,13 +34,13 @@ var skips = 3
 	%'Numpad/Row0/9'
 ]
 func win() -> void:
-	get_tree().change_scene_to_file("res://Win/Win.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://Win/Win.tscn")
 	
 func _process(_delta: float) -> void:
 	if meteor.global_position.x > exit_position:
 		win()
 	if xcollision(meteor, player):
-		get_tree().change_scene_to_file("res://Lose/Lose.tscn")
+		get_tree().change_scene_to_file.call_deferred("res://Lose/Lose.tscn")
 	if !lasers: return
 	for laser in lasers.get_children():
 		if xcollision(meteor, laser):
@@ -48,12 +48,19 @@ func _process(_delta: float) -> void:
 	for i in range(10):
 		if Input.is_action_just_pressed(str(i)):
 			_input_entered(i)
+
 var active_operations: Array[String]
 func _ready():
 	var ops: Dictionary[String, bool] = Preferences.saved.operations
 	active_operations = ops.keys().filter(func(key): return ops[key])
-	player.got_stunned.connect(new_op)
-	$UI/Skip.text = tr("game_button_skips") % 3
+	player.got_stunned.connect(player_stunned)
+	
+	if Global.game_mode == Global.GameModes.PRACTICE:
+		$UI/Skip.text = tr("game_button_no_skip")
+		$UI/Skip.disabled = true
+		fails_pending = Preferences.fails_left()
+	else:
+		$UI/Skip.text = tr("game_button_skips") % 3
 	Global.time = 0
 	Global.op = 0
 	for i in range(10):
@@ -62,16 +69,40 @@ func _ready():
 	new_op()
 	meteor.got_destroyed.connect(win)
 
+func player_stunned():
+	if Global.game_mode == Global.GameModes.PRACTICE:
+		return
+	
+	Preferences.add_fail([
+		$UI/OperationPanel/Operation.text,
+		answer
+	])
+	
+	new_op()
+
 func _input_entered(num):
 	if player.stunned: return
 	if num == answer:
 		player.shoot()
+		Preferences.remove_fail()
 		Global.op += 1
 		new_op()
 	else:
 		player.malfunct_shot()
 
+var fails_pending: int
 func new_op():
+	if Global.game_mode == Global.GameModes.PRACTICE:
+		if fails_pending <= 0:
+			$UI/OperationPanel/Operation.text = tr("all_done")
+			answer = int(NAN)
+			return
+		fails_pending -= 1
+		var q = Preferences.get_fail()
+		$UI/OperationPanel/Operation.text = q[0]
+		answer = q[1]
+		return
+
 	player.malfunction_count = 0
 	if active_operations.is_empty():
 		answer = int(NAN)
@@ -138,6 +169,8 @@ func Skip_pressed():
 	new_op()
 	if skips < 1:
 		$UI/Skip.disabled = true
+		$UI/Skip.text = tr("game_button_no_skip")
+		return
 	$UI/Skip.text = tr("game_button_skips") % skips
 
 func timeout():
@@ -145,4 +178,4 @@ func timeout():
 
 
 func _on_go_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://ModeSelection/ModeSelection.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://ModeSelection/ModeSelection.tscn")

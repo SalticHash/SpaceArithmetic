@@ -43,3 +43,17 @@ func load_pr() -> void:
 		print("Failed to load preferences!")
 		create_pr()
 		return
+
+func add_fail(q: Array):
+	saved.fails.push_front(q)
+	save_pr()
+
+func fails_left():
+	return min(Preferences.saved.fails.size(), 10)
+
+func get_fail() -> Array:
+	return saved.fails.back()
+
+func remove_fail() -> void:
+	saved.fails.pop_back()
+	save_pr()

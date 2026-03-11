@@ -2,9 +2,13 @@ extends Node
 
 var time := 0
 var op := 0
+var vs_winner: int = 0
+var vs_op: Array[int] = [0,0]
 enum GameModes {
 	ORIGINAL,
-	TIMED
+	TIMED,
+	PRACTICE,
+	VS
 }
 var game_mode: GameModes
 

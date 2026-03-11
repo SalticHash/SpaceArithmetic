@@ -17,6 +17,11 @@ operation_div,Division (÷),División (÷)
 menu_win_message,You won!,¡Ganaste!
 menu_win_time,Time: %ds,Tiempo: %ds
 menu_win_operations,Operations: %d,Operaciones: %d
+
+menu_vs_win_message,Winner: Player #%d!,¡Ganador: Jugaror #%d!
+menu_win_time,Time: %ds,Tiempo: %ds
+menu_vs_win_operations1,Operations Player #1: %d,Operaciones Jugador #1: %d
+menu_vs_win_operations2,Operations Player #2: %d,Operaciones Jugador #2: %d
 menu_mode_select,Select a Mode:,Selecciona un Modo:
 
 menu_option_screen,Screen Mode,Modo de Pantalla
@@ -32,4 +37,13 @@ menu_dif_regular,Regular,Regular
 menu_dif_hard,Hard,Dificil
 menu_dif_harder,Harder,Muy Dificil
 menu_timed_duration,Timed Duration,Duracion Contratiempo
-menu_timed_operation_count,Timed Operation Count: %03d,Operaciones en Contratiempo: %d
+menu_timed_operation_count,Timed Operation Count: %03d,Operaciones en Contratiempo: %03d
+
+all_done,All done!,Todo listo!
+game_button_no_skip,No skip,Sin saltos
+
+mode_original_desc,Answer problems to shoot the meteor offscreen.,Contesta problemas para sacar el meteorito de la pantalla.
+mode_timed_desc,Answer problems to destroy the meteor with a time limit.,Conteste problemas contratiempo para destruir el meteorito.
+mode_practice_desc,Practice up to ten problems you've had trouble with in the past.,Practica hasta dies problemas que se te complicaron en el pasado.
+mode_vs_desc,Play against another player! (Mobile recomended),Juega contra otro jugador! (Movil recomendado)
+hover_for_desc,Choose a mode!,Elige un modo!

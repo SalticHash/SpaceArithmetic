@@ -4,7 +4,7 @@ var radius: float = 37.0
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var stun_timer: Timer = $StunTimer
 @onready var animation: AnimationPlayer = $AnimationPlayer
-@onready var game: Game = get_tree().current_scene
+@onready var game: Node = get_tree().current_scene
 @onready var shoot_sound: AudioStreamPlayer = $ShootSound
 @onready var malfunct_shot_sound: AudioStreamPlayer = $MalfunctShotSound
 const colors: Array[StringName] = [
@@ -17,7 +17,7 @@ func _ready() -> void:
 	sprite.animation = color
 	sprite.frame_progress = randf()
 
-const packed_laser: PackedScene = preload("res://Laser/Laser.tscn")
+var packed_laser: PackedScene = load("res://Laser/Laser.tscn")
 func shoot():
 	if stunned: return
 	var laser = packed_laser.instantiate()
@@ -26,6 +26,7 @@ func shoot():
 	animation.play("shoot")
 	laser.global_position = global_position
 	laser.color = color
+	laser.scale = scale
 	game.lasers.add_child(laser)
 
 var malfunction_count = 0
@@ -33,7 +34,7 @@ func malfunct_shot():
 	if stunned: return
 	malfunct_shot_sound.play()
 	malfunction_count += 1
-	if malfunction_count >= 3:
+	if malfunction_count >= 3 and Global.game_mode != Global.GameModes.PRACTICE:
 		malfunction_count = 0
 		stun()
 		return

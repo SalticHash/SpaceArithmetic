@@ -1,7 +1,7 @@
 extends Control
 
 func _play_pressed():
-	get_tree().change_scene_to_file("res://Menu/Menu.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://Menu/Menu.tscn")
 
 func _ready():
 	$Container/Time.text = tr("menu_win_time") % Global.time
@@ -9,4 +9,4 @@ func _ready():
 
 
 func _on_play_again_pressed() -> void:
-	get_tree().change_scene_to_file("res://Root/Root.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://Root/Root.tscn")

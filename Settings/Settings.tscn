@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://dtrq385smupxx"]
 
+[ext_resource type="Theme" uid="uid://deia1qyek31k2" path="res://Theme/menu.theme" id="1_246cf"]
 [ext_resource type="Script" uid="uid://c3idrxiwob4oh" path="res://Settings/Settings.gd" id="1_w44vd"]
-
-[sub_resource type="Theme" id="Theme_w44vd"]
-default_font_size = 32
 
 [node name="Settings" type="Control" unique_id=287956289]
 layout_mode = 3
@@ -12,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_w44vd")
+theme = ExtResource("1_246cf")
 script = ExtResource("1_w44vd")
 
 [node name="Alignment" type="VBoxContainer" parent="." unique_id=392371158]
@@ -128,7 +126,7 @@ theme_override_constants/separation = 16
 
 [node name="DifLabel" type="Label" parent="Alignment/HBoxContainer/VBoxContainer2/GameDifficulty/Slider" unique_id=572533117]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(164, 0)
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "menu_dif_regular"
@@ -160,6 +158,7 @@ theme_override_constants/separation = 16
 
 [node name="TimedDurationLabel" type="Label" parent="Alignment/HBoxContainer/VBoxContainer2/TimedSpeed/Slider" unique_id=1124395176]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(133.495, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "1m 20s"
@@ -176,6 +175,7 @@ value = 24.0
 
 [node name="OpCount" type="Label" parent="Alignment/HBoxContainer/VBoxContainer2" unique_id=1498288549]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 text = "menu_timed_operation_count"
 

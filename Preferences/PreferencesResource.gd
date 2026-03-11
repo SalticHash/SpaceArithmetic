@@ -11,3 +11,4 @@ class_name PreferencesResource
 @export var timed_duration: float = 24.0
 @export var difficulty: int = 0
 @export var window_mode: DisplayServer.WindowMode = DisplayServer.WINDOW_MODE_WINDOWED
+@export var fails: Array[Array]

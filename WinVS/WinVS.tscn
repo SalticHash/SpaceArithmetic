@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://khas2uuoo26w"]
+[gd_scene format=3 uid="uid://blkegmqdaj6kd"]
 
-[ext_resource type="Theme" uid="uid://deia1qyek31k2" path="res://Theme/menu.theme" id="1_qywwi"]
-[ext_resource type="Script" uid="uid://et3sslcrgwsg" path="res://Win/Win.gd" id="3"]
+[ext_resource type="Theme" uid="uid://deia1qyek31k2" path="res://Theme/menu.theme" id="1_nf1q2"]
+[ext_resource type="Script" uid="uid://cjp1ats1xg3cf" path="res://WinVS/WinVS.gd" id="2_atf35"]
 
 [node name="Win" type="Control" unique_id=1291768530]
 layout_mode = 3
@@ -10,8 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_qywwi")
-script = ExtResource("3")
+theme = ExtResource("1_nf1q2")
+script = ExtResource("2_atf35")
 
 [node name="Container" type="VBoxContainer" parent="." unique_id=543311445]
 layout_mode = 1
@@ -30,15 +30,19 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Container" unique_id=1159701719]
 layout_mode = 2
-text = "menu_win_message"
+text = "menu_vs_win_message"
 
 [node name="Time" type="Label" parent="Container" unique_id=359243673]
 layout_mode = 2
 text = "menu_win_time"
 
-[node name="Op" type="Label" parent="Container" unique_id=2090019711]
+[node name="Op1" type="Label" parent="Container" unique_id=2090019711]
 layout_mode = 2
-text = "menu_win_operations"
+text = "menu_vs_win_operations1"
+
+[node name="Op2" type="Label" parent="Container" unique_id=1065860877]
+layout_mode = 2
+text = "menu_vs_win_operations2"
 
 [node name="PlayAgain" type="Button" parent="Container" unique_id=193859018]
 layout_mode = 2

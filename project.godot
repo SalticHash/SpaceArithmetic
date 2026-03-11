@@ -125,6 +125,7 @@ texture={
 [internationalization]
 
 locale/translation_remaps={
+"res://ModeSelection/sprites/mode_covers/practice_en.png": PackedStringArray("res://ModeSelection/sprites/mode_covers/practice_en.png:en", "res://ModeSelection/sprites/mode_covers/practice_es.png:es"),
 "res://ModeSelection/sprites/mode_covers/timed_en.png": PackedStringArray("res://ModeSelection/sprites/mode_covers/timed_en.png:en", "res://ModeSelection/sprites/mode_covers/timed_es.png:es")
 }
 locale/translations=PackedStringArray("res://Translations/translate.en.translation", "res://Translations/translate.es.translation")
